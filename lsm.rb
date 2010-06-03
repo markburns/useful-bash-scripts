@@ -38,10 +38,16 @@ if sort_alphabetically
     a[0].downcase <=> b[0].downcase
   end
 end
+def keywords name
+  name.gsub! "create ", green{"Create "}
+  name.gsub! "add ", blue{"Add "}
+  name.gsub! "change ", red{"Change "}
 
+end
 arr.each do |details|
   name,time, filename = details[0], details[1], details[2]
   name.gsub! "_"," "
+
   spaces=(longest - name.length)+5
   colorize = true if time==current_version
 
@@ -49,7 +55,12 @@ arr.each do |details|
   date = time.split("T")[0]
   time = time.split("T")[1][0..7]
 
-  puts red if colorize
+  if colorize
+    puts red
+  else
+    keywords name
+  end
+
   display = name + (" "*spaces) + "| " + date + " " + time
   if show_filename
     display << ("   " + blue + filename + white )
