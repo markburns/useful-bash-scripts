@@ -10,6 +10,9 @@ require 'term/ansicolor'
 include Term::ANSIColor
 
 version = `rake db:version`
+unless version
+  exit "problem with rake"
+end  
 sort_alphabetically = ARGV[0] == "s"
 show_filename = ARGV.index "-f"
 time = version.split(":")[1]
