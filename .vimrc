@@ -154,13 +154,13 @@ else
         colorscheme desert
     else
         set t_Co=256
-        colorscheme vibrantink
+        colorscheme desert256
         set guitablabel=%M%t
         set lines=40
         set columns=115
     endif
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Monaco:h16
+        set guifont=Monaco:h13
     endif
     if has("gui_win32") || has("gui_win32s")
         set guifont=Consolas:h12
