@@ -1,2 +1,0 @@
-find ./ -name '*.sw[op]' -delete
-find ./ -name '*.orig' -delete
